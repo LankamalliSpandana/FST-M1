@@ -1,27 +1,20 @@
 package Activities;
 
-public class Activity12 {
-    public interface Addable {
-        int add(int num1, int num2);
-    }
-
-    public static void main(String[] args) {
-
-        Addable ad1 = Integer::sum;
-
-        Addable ad2 = (num1, num2) -> {
-            int sum = num1 + num2;
-            System.out.println("The sum of " + num1 + " and " + num2 + " is: " + sum);
-            return sum;
-        };
-
-
-        int result1 = ad1.add(10, 20);
-        System.out.println("Result from ad1: " + result1);
-
-        int result2 = ad2.add(30, 40);
-
-    }
-
+interface Addable {
+    int add(int a, int b);
 }
 
+public class Activity12 {
+    public static void main(String[] args) {
+
+        // Lambda expression without return keyword.
+        Addable ad1 = (a, b) -> (a + b);
+        System.out.println(ad1.add(10, 20));
+
+        // Lambda expression with return keyword.
+        Addable ad2 = (int a, int b) -> {
+            return (a + b);
+        };
+        System.out.println(ad2.add(100, 200));
+    }
+}
